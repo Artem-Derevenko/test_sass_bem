@@ -1,0 +1,145 @@
+@import 'mixins/flexbox';
+@import 'mixins/transition';
+@import 'variables';
+
+.text {
+    color: $text-color;
+    font-size: $font-text-size;
+    font-family: $font-family-text;
+    line-height: $text-line-height;
+}
+
+.title {
+    color: $title-color;
+    font-size: $font-title-size;
+    font-family: $font-family-title;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.page {
+    width: 100%;
+    @include flex_center();
+
+    .page__content {
+        width: 840px;
+        min-height: 1000px;
+    }
+}
+
+.button {
+    width: 115px;
+    height: 30px;
+    @include flex_center();
+    border-radius: $border-radius;
+    color: $button-text-color;
+    font-size: $button-text-size;
+    font-family: $font-family-title;
+    text-decoration: none;
+    @include transition(opacity .3s);
+
+    &--primary {
+        background: $button-linear-gradientd;
+
+        &:hover {
+            opacity: .8;
+        }
+    }
+}
+
+.header {
+    @include flex_between();
+    @include flex_align_items(center);
+    width: 100%;
+    min-height: 80px;
+
+    &__nav-list {
+        width: 390px;
+        @include flex_between();
+        @include flex_align_items(center);
+    }
+
+    &__nav-item {
+        text-decoration: none;
+        color: $title-color;
+        font-size: $font-nav-size;
+        font-family: $font-family-title;
+        font-weight: 700;
+        @include transition(color .3s);
+
+        &:hover {
+            color: $primary-color;
+        }
+    }
+}
+
+.slider {
+    width: 100%;
+    background-color: #f0f0f0;
+    padding: 20px 30px;
+
+    &__wrap {
+        @include flex_between();
+    }
+
+    &__image {
+        width: 380px;
+        height: 230px;
+        overflow: hidden;
+        box-shadow: $box-shadow;
+    }
+
+    &__info {
+        width: 380px;
+    }
+
+    &__title {
+        color: $title-color;
+        font-size: 21px;
+        font-family: $font-family-title;
+        font-weight: 700;
+        line-height: 26px;
+    }
+
+    &__text {
+        @extend .text;
+        margin: 10px 0;
+    }
+}
+
+.article {
+    width: 100%;
+    margin-top: 20px;
+
+    &__title {
+        @extend .title;
+    }
+
+    &__text {
+        @extend .text;
+    }
+}
+
+.cards {
+    width: 100%;
+    padding: 0 15px;
+    margin: 30px 0 40px 0;
+    @include flex_between();
+
+    &__item {
+        @include flex_between();
+        @include flex_align_items(center);
+    }
+
+    &__title {
+        font-family: $font-family-text;
+        color: $title-color;
+        font-size: $font-text-size;
+        line-height: 18px;
+        font-style: italic;
+    }
+
+    &__icon {
+        margin-right: 15px; 
+    }
+}
